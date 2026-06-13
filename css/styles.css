@@ -102,28 +102,37 @@ a:not([class]) {
   isolation: isolate;
 }
 
-/* STYLES */
+/* ==========================================
+   STYLES
+========================================== */
+
 body {
   display: grid;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "header"
     "main";
-  gap: 1em;
-  background-image: url("img/fondo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
-/* HEADER */
+/* ==========================================
+   HEADER
+========================================== */
+
 .header {
-  grid-area: header;
   display: flex;
   justify-content: end;
   align-items: center;
   padding: 1rem;
+  grid-area: header;
 }
 
 .header__logo {
@@ -133,68 +142,75 @@ body {
   width: 15%;
 }
 
-/* MAIN */
+/* ==========================================
+   MAIN
+========================================== */
+
 .main {
-  grid-area: main;
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "guide game";
+  grid-area: main;
 }
 
-/* MAIN - GUIDE */
+/* ==========================================
+   MAIN - GUIDE
+========================================== */
+
 .main__guide {
-  grid-area: guide;
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "bubble bubble"
     "controls character";
-  gap: 1rem;
+  grid-area: guide;
 }
 
 .bubble {
-  grid-area: bubble;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  position: relative;
+  grid-area: bubble;
 }
 
 .bubble__img {
-  width: 75%;
   position: relative;
   top: 50px;
   left: 50px;
+  width: 75%;
 }
 
 .bubble__text {
   position: absolute;
-  bottom: 25%; /* sube desde abajo — el globo está abajo */
+  bottom: 25%;
   left: 60%;
-  width: 75%; /* ancho del área de texto dentro del óvalo */
-  text-align: center;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
+  width: 75%;
   font-family: "fredoka", sans-serif;
-  color: #1a365d;
+  font-size: 1.5rem;
   font-weight: 500;
+  text-align: center;
+  color: #1a365d;
+  transform: translateX(-50%);
 }
 
 .controls {
-  grid-area: controls;
   display: flex;
   justify-content: flex-start;
   align-items: end;
   gap: 1rem;
   padding: 0 0 1rem 1rem;
+  grid-area: controls;
 }
 
 .controls__button {
-  background: transparent;
-  border: none;
   padding: 0;
+  border: none;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -203,11 +219,11 @@ body {
 }
 
 .character {
-  grid-area: character;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* pega el personaje abajo */
+  align-items: flex-end;
   overflow: visible;
+  grid-area: character;
 }
 
 .character__img {
@@ -215,10 +231,14 @@ body {
   max-width: none;
 }
 
-/* MAIN - GAME */
+/* ==========================================
+   MAIN - GAME
+========================================== */
+
 .main__game {
-  grid-area: game;
+  display: flex;
   padding: 7rem 1rem 1rem;
+  grid-area: game;
 }
 
 .grid {
@@ -228,19 +248,19 @@ body {
 }
 
 .grid__card {
-  background-color: white;
   border: none;
   border-radius: 8px;
+  background-color: white;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .grid__card--correcto {
-  background-color: #90ee90; /* verde claro */
+  background-color: #90ee90;
 }
 
 .grid__card--error {
-  background-color: #ffcccc; /* rojo claro breve */
+  background-color: #ffcccc;
 }
 
 /* ==========================================
@@ -269,8 +289,8 @@ body {
 
 .win-overlay {
   position: fixed;
-  inset: 0;
   z-index: 999;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -334,4 +354,53 @@ body {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* ==========================================
+   ESCALADO PARA PANTALLAS GRANDES
+========================================== */
+
+@media (min-width: 1280px) {
+  .header__logo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 14%;
+  }
+
+  .main__guide {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .bubble__img {
+    position: relative;
+    top: 150px;
+    left: -50px;
+    width: 50%;
+  }
+
+  .bubble__text {
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    width: 80%;
+    font-size: 2rem;
+  }
+
+  .controls {
+    gap: 2rem;
+  }
+
+  .controls__icon {
+    width: 100%;
+  }
+
+  .grid {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+    grid-template-columns: repeat(6, 150px);
+    grid-auto-rows: 150px;
+  }
 }
