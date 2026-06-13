@@ -124,7 +124,6 @@ body {
   justify-content: end;
   align-items: center;
   padding: 1rem;
-  background-color: blue;
 }
 
 .header__logo {
@@ -132,7 +131,6 @@ body {
   justify-content: end;
   align-items: center;
   width: 15%;
-  background-color: purple;
 }
 
 /* MAIN */
@@ -142,7 +140,6 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "guide game";
-  background-color: red;
 }
 
 /* MAIN - GUIDE */
@@ -155,7 +152,6 @@ body {
     "bubble bubble"
     "controls character";
   gap: 1rem;
-  background-color: green;
 }
 
 .bubble {
@@ -164,21 +160,26 @@ body {
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  background-color: beige;
 }
 
 .bubble__img {
   width: 75%;
+  position: relative;
+  top: 50px;
+  left: 50px;
 }
 
 .bubble__text {
   position: absolute;
   bottom: 25%; /* sube desde abajo — el globo está abajo */
-  left: 50%;
-  width: 45%; /* ancho del área de texto dentro del óvalo */
+  left: 60%;
+  width: 75%; /* ancho del área de texto dentro del óvalo */
   text-align: center;
   transform: translateX(-50%);
-  /* Se posiciona relativo a .bubble, pero apuntando al centro del globo */
+  font-size: 1.5rem;
+  font-family: "fredoka", sans-serif;
+  color: #1a365d;
+  font-weight: 500;
 }
 
 .controls {
@@ -188,7 +189,13 @@ body {
   align-items: end;
   gap: 1rem;
   padding: 0 0 1rem 1rem;
-  background-color: pink;
+}
+
+.controls__button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .controls__icon {
@@ -200,7 +207,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end; /* pega el personaje abajo */
-  background-color: aqua;
   overflow: visible;
 }
 
@@ -212,15 +218,120 @@ body {
 /* MAIN - GAME */
 .main__game {
   grid-area: game;
-  align-content: center;
-  padding: 1rem;
-  background-color: orange;
+  padding: 7rem 1rem 1rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0.5rem;
-  background-color: red;
+  grid-template-columns: repeat(6, 85px);
+  grid-auto-rows: 85px;
+}
+
+.grid__card {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.grid__card--correcto {
+  background-color: #90ee90; /* verde claro */
+}
+
+.grid__card--error {
+  background-color: #ffcccc; /* rojo claro breve */
+}
+
+/* ==========================================
+   OVERLAY DE VICTORIA
+========================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.win-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  animation: fade-in 0.35s ease;
+}
+
+.win-overlay__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pop-in 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.win-overlay__cloud-wrap {
+  position: relative;
+  width: min(80vw, 480px);
+}
+
+.win-overlay__cloud {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.win-overlay__msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 15%;
+  font-family: "mali", sans-serif;
+  font-size: clamp(1rem, 3.5vw, 1.6rem);
+  font-weight: bold;
+  line-height: 1.35;
+  text-align: center;
+  color: #f5c800;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.win-overlay__continue {
+  position: absolute;
+  right: -10%;
+  bottom: -20%;
+  z-index: 10;
+  width: min(25vw, 140px);
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.win-overlay__continue:hover,
+.win-overlay__continue:focus-visible {
+  outline: none;
+  transform: scale(1.08);
+}
+
+.win-overlay__continue img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
