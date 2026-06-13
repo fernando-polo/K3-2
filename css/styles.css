@@ -103,24 +103,27 @@ a:not([class]) {
 }
 
 /* ==========================================
-   STYLES
+   BODY
 ========================================== */
 
 body {
+  /* Display y Flexbox / Grid */
   display: grid;
   justify-content: center;
   gap: 1em;
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/fondo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "header"
     "main";
+  /* Modelo de caja */
+  width: 100%;
+  height: 100%;
+  /* Visual */
+  background-image: url("../img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* ==========================================
@@ -128,17 +131,22 @@ body {
 ========================================== */
 
 .header {
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 1rem;
+  /* Modelo de caja */
+  padding: 1rem 2rem;
+  /* Grid area */
   grid-area: header;
 }
 
 .header__logo {
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: end;
   align-items: center;
+  /* Modelo de caja */
   width: 15%;
 }
 
@@ -147,11 +155,13 @@ body {
 ========================================== */
 
 .main {
+  /* Display y Flexbox / Grid */
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 2fr;
   grid-template-rows: 1fr;
   grid-template-areas: "guide game";
+  /* Grid area */
   grid-area: main;
 }
 
@@ -160,6 +170,7 @@ body {
 ========================================== */
 
 .main__guide {
+  /* Display y Flexbox / Grid */
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
@@ -167,66 +178,87 @@ body {
   grid-template-areas:
     "bubble bubble"
     "controls character";
+  /* Grid area */
   grid-area: guide;
 }
 
 .bubble {
+  /* Posicionamiento */
   position: relative;
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  /* Grid area */
   grid-area: bubble;
 }
 
 .bubble__img {
+  /* Posicionamiento */
   position: relative;
-  top: 50px;
-  left: 50px;
+  top: 100px;
+  left: 25px;
+  /* Modelo de caja */
   width: 75%;
 }
 
 .bubble__text {
+  /* Posicionamiento */
   position: absolute;
-  bottom: 25%;
-  left: 60%;
+  bottom: 5%;
+  left: 57%;
+  /* Modelo de caja */
   width: 75%;
+  /* Tipografía */
   font-family: "fredoka", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   text-align: center;
   color: #1a365d;
+  /* Misceláneos */
   transform: translateX(-50%);
 }
 
 .controls {
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: flex-start;
   align-items: end;
   gap: 1rem;
+  /* Modelo de caja */
   padding: 0 0 1rem 1rem;
+  /* Grid area */
   grid-area: controls;
 }
 
 .controls__button {
+  /* Modelo de caja */
   padding: 0;
+  /* Visual */
   border: none;
   background: transparent;
+  /* Misceláneos */
   cursor: pointer;
 }
 
 .controls__icon {
+  /* Modelo de caja */
   width: 75%;
 }
 
 .character {
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  overflow: visible;
+  /* Grid area */
   grid-area: character;
+  /* Misceláneos */
+  overflow: visible;
 }
 
 .character__img {
+  /* Modelo de caja */
   width: 135%;
   max-width: none;
 }
@@ -236,25 +268,32 @@ body {
 ========================================== */
 
 .main__game {
+  /* Display y Flexbox / Grid */
   display: flex;
-  padding: 7rem 1rem 1rem;
+  /* Modelo de caja */
+  padding: 7rem 1rem 7rem 0rem;
+  /* Grid area */
   grid-area: game;
 }
 
 .grid {
+  /* Display y Flexbox / Grid */
   display: grid;
   grid-template-columns: repeat(6, 85px);
   grid-auto-rows: 85px;
 }
 
 .grid__card {
+  /* Visual */
   border: none;
   border-radius: 8px;
   background-color: white;
+  /* Misceláneos */
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
+/* Estados del juego */
 .grid__card--correcto {
   background-color: #90ee90;
 }
@@ -288,70 +327,92 @@ body {
 }
 
 .win-overlay {
+  /* Posicionamiento */
   position: fixed;
   z-index: 999;
   inset: 0;
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Visual */
   background: rgba(0, 0, 0, 0.55);
+  /* Misceláneos */
   animation: fade-in 0.35s ease;
 }
 
 .win-overlay__content {
+  /* Display y Flexbox / Grid */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Misceláneos */
   animation: pop-in 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 .win-overlay__cloud-wrap {
+  /* Posicionamiento */
   position: relative;
+  /* Modelo de caja */
   width: min(80vw, 480px);
 }
 
 .win-overlay__cloud {
+  /* Display y Flexbox / Grid */
   display: block;
+  /* Modelo de caja */
   width: 100%;
   height: auto;
 }
 
 .win-overlay__msg {
+  /* Posicionamiento */
   position: absolute;
   inset: 0;
+  /* Display y Flexbox / Grid */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Modelo de caja */
   padding: 10% 15%;
+  /* Tipografía */
   font-family: "mali", sans-serif;
   font-size: clamp(1rem, 3.5vw, 1.6rem);
   font-weight: bold;
   line-height: 1.35;
   text-align: center;
   color: #f5c800;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  /* Visual */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .win-overlay__continue {
+  /* Posicionamiento */
   position: absolute;
   right: -10%;
   bottom: -20%;
   z-index: 10;
+  /* Modelo de caja */
   width: min(25vw, 140px);
   padding: 0;
+  /* Visual */
   border: none;
   background: transparent;
+  /* Misceláneos */
   cursor: pointer;
 }
 
 .win-overlay__continue:hover,
 .win-overlay__continue:focus-visible {
   outline: none;
+  /* Misceláneos */
   transform: scale(1.08);
 }
 
 .win-overlay__continue img {
+  /* Display y Flexbox / Grid */
   display: block;
+  /* Modelo de caja */
   width: 100%;
   height: auto;
 }
@@ -361,11 +422,29 @@ body {
 ========================================== */
 
 @media (min-width: 1280px) {
+  .header {
+    /* Modelo de caja */
+    padding: 2rem 3rem;
+  }
+
   .header__logo {
+    /* Display y Flexbox / Grid */
     display: flex;
     justify-content: end;
     align-items: center;
-    width: 14%;
+    /* Modelo de caja */
+    width: 12%;
+  }
+
+  .main {
+    /* Display y Flexbox / Grid */
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "guide game";
+    /* Grid area */
+    grid-area: main;
   }
 
   .main__guide {
@@ -374,29 +453,46 @@ body {
   }
 
   .bubble__img {
+    /* Posicionamiento */
     position: relative;
-    top: 150px;
+    top: 125px;
     left: -50px;
-    width: 50%;
+    /* Modelo de caja */
+    width: 60%;
   }
 
   .bubble__text {
+    /* Posicionamiento */
     position: absolute;
-    bottom: 5%;
-    left: 45%;
-    width: 80%;
+    bottom: 15%;
+    left: 44%;
+    /* Modelo de caja */
+    width: 60%;
+    /* Tipografía */
     font-size: 2rem;
   }
 
   .controls {
+    /* Display y Flexbox / Grid */
     gap: 2rem;
   }
 
   .controls__icon {
+    /* Modelo de caja */
     width: 100%;
   }
 
+  .main__game {
+    /* Display y Flexbox / Grid */
+    display: flex;
+    /* Modelo de caja */
+    padding: 7rem 1rem 7rem 0rem;
+    /* Grid area */
+    grid-area: game;
+  }
+
   .grid {
+    /* Display y Flexbox / Grid */
     display: grid;
     justify-content: center;
     gap: 1rem;
