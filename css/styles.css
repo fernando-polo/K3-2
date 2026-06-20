@@ -205,7 +205,8 @@ body {
 .bubble__text {
   /* Posicionamiento */
   position: absolute;
-  left: 57%;
+  left: 56%;
+  bottom: 5%;
   /* Modelo de caja */
   width: 75%;
   /* Tipografía */
@@ -454,7 +455,7 @@ body {
   .bubble__img {
     /* Posicionamiento */
     position: relative;
-    top: 125px;
+    top: 110px;
     left: -50px;
     /* Modelo de caja */
     width: 60%;
@@ -463,7 +464,7 @@ body {
   .bubble__text {
     /* Posicionamiento */
     position: absolute;
-    bottom: 15%;
+    bottom: 20%;
     left: 44%;
     /* Modelo de caja */
     width: 60%;
