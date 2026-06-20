@@ -205,16 +205,16 @@ body {
 .bubble__text {
   /* Posicionamiento */
   position: absolute;
-  bottom: 5%;
   left: 57%;
   /* Modelo de caja */
   width: 75%;
   /* Tipografía */
   font-family: "fredoka", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.32;
   text-align: center;
-  color: #1a365d;
+  color: #203764;
   /* Misceláneos */
   transform: translateX(-50%);
 }
@@ -224,7 +224,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: end;
-  gap: 1rem;
   /* Modelo de caja */
   padding: 0 0 1rem 1rem;
   /* Grid area */
@@ -243,7 +242,7 @@ body {
 
 .controls__icon {
   /* Modelo de caja */
-  width: 75%;
+  width: 70%;
 }
 
 .character {
@@ -472,14 +471,9 @@ body {
     font-size: 2rem;
   }
 
-  .controls {
-    /* Display y Flexbox / Grid */
-    gap: 2rem;
-  }
-
   .controls__icon {
     /* Modelo de caja */
-    width: 100%;
+    width: 70%;
   }
 
   .main__game {

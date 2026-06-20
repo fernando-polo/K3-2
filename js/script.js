@@ -89,8 +89,8 @@ function mostrarFelicitacion() {
         <img class="win-overlay__cloud" src="img/nube_final.png" alt="" />
         <p class="win-overlay__msg">
           ¡Muy bien!<br>
-          Hayaste todos<br>
-          los nueves.
+          Hallaste todos
+          los 9.
         </p>
         <button class="win-overlay__continue" aria-label="Continuar">
           <img src="img/end_btn.png" alt="Continuar" />
