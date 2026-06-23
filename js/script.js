@@ -6,7 +6,15 @@ const audioInstruccion = new Audio("audio/C26_AS_AU_RE_73_PRIN.mp3");
 function playInstruccion() {
   audioInstruccion.pause();
   audioInstruccion.currentTime = 0;
-  audioInstruccion.play().catch(() => {});
+  audioInstruccion
+    .play()
+    .then(() => {
+      console.log("AUTOPLAY OK");
+    })
+    .catch((err) => {
+      console.log("AUTOPLAY BLOQUEADO");
+      console.log(err);
+    });
 }
 
 // Al cargar la página
